@@ -10,12 +10,16 @@
  */
 
 import React from 'react';
+import styles from './styles.css';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (
-      <h1>This is the Homepage!</h1>
+      <div className={styles.main}>
+        <input placeholder="Type account name here" className={styles.account} />
+        <button className={styles.button}>Let's go</button>
+      </div>
     );
   }
 }
