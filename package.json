@@ -104,7 +104,9 @@
           ]
         }
       ],
-      "indentation": 2
+      "indentation": 2,
+      "number-leading-zero": "never",
+      "color-hex-case": "lower"
     }
   },
   "dllPlugin": {
