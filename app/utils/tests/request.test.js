@@ -57,8 +57,8 @@ describe('request', () => {
     it('should catch errors', (done) => {
       request('/thisdoesntexist')
         .then((json) => {
-          expect(json.err.response.status).toEqual(404);
-          expect(json.err.response.statusText).toEqual('Not Found');
+          expect(json.error.response.status).toEqual(404);
+          expect(json.error.response.statusText).toEqual('Not Found');
           done();
         });
     });
