@@ -1,22 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUserPepos } from './actions';
+import { loadUserPage } from './actions';
 
-export class UserReposPage extends React.Component {
+export class UserPage extends React.Component {
   componentWillMount() {
-    this.props.fetchUserPepos(this.props.user);
+    this.props.loadUserPage(this.props.user);
   }
 
   render() {
-    let { isLoading, repos } = this.props;
+    let { isFetching, repos } = this.props;
     repos = repos || [];
 
     return (
       <div>
-        {isLoading &&
+        {isFetching &&
           <h2>Loading repos...</h2>
         }
-        {!isLoading && repos.length > 0 &&
+        {!isFetching && repos.length > 0 &&
           <ul>
             {repos.map(repo => <li key={repo.id}>{repo.full_name}</li>)}
           </ul>
@@ -26,26 +26,26 @@ export class UserReposPage extends React.Component {
   }
 }
 
-UserReposPage.propTypes = {
-  isLoading: React.PropTypes.func,
+UserPage.propTypes = {
+  isFetching: React.PropTypes.bool,
   repos: React.PropTypes.array,
   error: React.PropTypes.string,
   user: React.PropTypes.string,
-  fetchUserPepos: React.PropTypes.func,
+  loadUserPage: React.PropTypes.func
 };
 
 function mapStateToProps(state) {
   const location = state.getIn(['route', 'locationBeforeTransitions']);
-  const userRepos = state.get('userRepos');
+  const user = state.get('user');
 
   return {
-    isLoading: userRepos.get('isLoading'),
-    repos: userRepos.get('repos'),
-    error: userRepos.get('error'),
+    isFetching: user.get('isFetching'),
+    repos: user.get('repos'),
+    error: user.get('error'),
     user: location.get('pathname').substring(1)
   };
 }
 
 export default connect(mapStateToProps, {
-  fetchUserPepos
-})(UserReposPage);
+  loadUserPage
+})(UserPage);

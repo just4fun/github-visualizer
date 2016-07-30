@@ -7,5 +7,5 @@ function callApi(endpoint) {
 }
 
 export default {
-  fetchUserRepos: user => callApi(`users/${user}/repos`)
+  fetchRepos: user => callApi(`users/${user}/repos`)
 };
