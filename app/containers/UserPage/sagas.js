@@ -4,13 +4,17 @@ import * as actions from './actions';
 import api from 'services';
 import { fetchResource } from 'utils/sagaHelper';
 
-const { repos } = actions;
+const { user, repos } = actions;
+
+const fetchUser = fetchResource.bind(null, user, api.fetchUser);
 const fetchRepos = fetchResource.bind(null, repos, api.fetchRepos);
 
 export function* watchLoadUserPage() {
   while (true) {
-    const { user } = yield take(actions.LOAD_USER_PAGE);
-    yield fork(fetchRepos, user);
+    const { userName } = yield take(actions.LOAD_USER_PAGE);
+
+    yield fork(fetchUser, userName);
+    yield fork(fetchRepos, userName);
   }
 }
 
