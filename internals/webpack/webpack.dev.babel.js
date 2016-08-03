@@ -15,6 +15,8 @@ const dllPlugin = pkg.dllPlugin;
 const cssnext = require('postcss-cssnext');
 const postcssFocus = require('postcss-focus');
 const postcssReporter = require('postcss-reporter');
+const postcssNested = require('postcss-nested');
+const postcssSimpleVars = require('postcss-simple-vars');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
@@ -47,6 +49,8 @@ module.exports = require('./webpack.base.babel')({
 
   // Process the CSS with PostCSS
   postcssPlugins: [
+    postcssSimpleVars(),
+    postcssNested(),
     postcssFocus(), // Add a :focus to every :hover
     cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
       browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list

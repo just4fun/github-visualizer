@@ -22,14 +22,19 @@ export class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.goSearch = this.goSearch.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   render() {
     return (
       <div className={styles.main}>
-        <input placeholder="Type account name here" className={styles.account} ref="input" />
-        <button className={styles.button} onClick={this.goSearch}>Let's go</button>
+        <div className={styles.jumbotron}>
+          <h1>GitHub Visualizer</h1>
+          <p>Yet another GitHub visualizer written in latest frontend stuff with D3.</p>
+        </div>
+        <input placeholder="Type account name here" className={styles.account} onKeyUp={this.handleKeyUp} ref="input" />
+        <button className={styles.button} onClick={this.handleSearch}>Let's go</button>
       </div>
     );
   }
@@ -38,7 +43,13 @@ export class HomePage extends React.Component {
     return findDOMNode(this.refs.input).value;
   }
 
-  goSearch() {
+  handleKeyUp(e) {
+    if (e.keyCode === 13) {
+      this.handleSearch();
+    }
+  }
+
+  handleSearch() {
     const user = this.getInputValue().trim();
     if (user) {
       this.props.changeRoute(`/${user}`);
