@@ -15,7 +15,11 @@ import styles from './styles.css';
 import { findDOMNode } from 'react-dom';
 import { push } from 'react-router-redux';
 
-export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class HomePage extends React.Component {
+  static propTypes = {
+    changeRoute: React.PropTypes.func
+  }
+
   constructor(props) {
     super(props);
     this.goSearch = this.goSearch.bind(this);
@@ -41,10 +45,6 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
     }
   }
 }
-
-HomePage.propTypes = {
-  changeRoute: React.PropTypes.func,
-};
 
 function mapDispatchToProps(dispatch) {
   return {

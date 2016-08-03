@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { loadUserPage } from './actions';
 import UserProfile from 'components/UserProfile';
 import RepoList from 'components/RepoList';
+import styles from './styles.css';
 
 export class UserPage extends React.Component {
   componentWillMount() {
@@ -13,20 +14,13 @@ export class UserPage extends React.Component {
     const { userInfo, repos } = this.props;
 
     return (
-      <div>
+      <div className={styles.container}>
         <UserProfile user={userInfo} />
         <RepoList repos={repos} />
       </div>
     );
   }
 }
-
-UserPage.propTypes = {
-  repos: React.PropTypes.array,
-  userInfo: React.PropTypes.object,
-  userName: React.PropTypes.string,
-  loadUserPage: React.PropTypes.func
-};
 
 function mapStateToProps(state) {
   const location = state.getIn(['route', 'locationBeforeTransitions']);
