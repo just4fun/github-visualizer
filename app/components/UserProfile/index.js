@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from 'components/Loading';
 import classnames from 'classnames';
 import styles from './styles.css';
 
@@ -7,8 +8,12 @@ export default class UserProfile extends React.Component {
     let { isFetching, data } = this.props.user;
     let user = data || {};
 
+    if (isFetching) {
+      return <Loading />;
+    }
+
     return (
-      <div className={classnames(styles['user-profile'], { 'loading-overlay': isFetching })}>
+      <div className={styles['user-profile']}>
         <img src={user.avatar_url} alt={user.name} />
         <div className={styles['name-card']}>
           <div className={styles['full-name']}>{user.name}</div>

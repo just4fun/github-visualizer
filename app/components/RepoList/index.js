@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import styles from './styles.css';
 
 export default class RepoList extends React.Component {
@@ -8,7 +7,7 @@ export default class RepoList extends React.Component {
     let repos = data || [];
 
     return (
-      <ul className={classnames(styles['repo-list'], { 'loading-overlay': isFetching })}>
+      <ul className={styles['repo-list']}>
         {repos.map(repo => <li key={repo.id}>{repo.full_name}</li>)}
       </ul>
     );
