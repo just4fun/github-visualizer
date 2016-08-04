@@ -1,8 +1,4 @@
-export default function reducerHandler(resource, types, initialState) {
-  if (typeof resource !== 'string' || resource.length === 0) {
-    throw new Error('Expected `resource` to be an string and not empty.');
-  }
-
+export default function reducerHandler(types, initialState) {
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('Expected `types` to be an array of three elements.');
   }
@@ -19,7 +15,7 @@ export default function reducerHandler(resource, types, initialState) {
         return state.set('isFetching', true);
       case successType:
         return state.set('isFetching', false)
-                    .set(resource, action.response);
+                    .set('data', action.response);
       case failureType:
         return state.set('isFetching', false)
                     .set('error', action.error);

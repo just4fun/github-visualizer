@@ -35,7 +35,7 @@ export default function createRoutes(store) {
       }
     },
     {
-      path: '/:user',
+      path: '/users/:user',
       name: 'user',
       getComponent(nextState, cb) {
         const importModules = Promise.all([

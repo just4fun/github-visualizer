@@ -52,7 +52,7 @@ export class HomePage extends React.Component {
   handleSearch() {
     const user = this.getInputValue().trim();
     if (user) {
-      this.props.changeRoute(`/${user}`);
+      this.props.changeRoute(`/users/${user}`);
     }
   }
 }

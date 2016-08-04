@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.css';
+import { Link } from 'react-router';
 
 export default class App extends React.Component {
   render() {
@@ -7,7 +7,7 @@ export default class App extends React.Component {
       <header>
         <div>
           <h2>
-            <a href='/'>visualizer</a>
+            <Link to="/">visualizer</Link>
           </h2>
           <nav></nav>
         </div>

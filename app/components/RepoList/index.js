@@ -4,7 +4,8 @@ import styles from './styles.css';
 
 export default class RepoList extends React.Component {
   render() {
-    let { isFetching, repos=[] } = this.props.repos;
+    let { isFetching, data } = this.props.repos;
+    let repos = data || [];
 
     return (
       <ul className={classnames(styles['repo-list'], { 'loading-overlay': isFetching })}>

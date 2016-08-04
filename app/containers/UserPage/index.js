@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadUserPage } from './actions';
 import UserProfile from 'components/UserProfile';
-import RepoList from 'components/RepoList';
-import styles from './styles.css';
 
 export class UserPage extends React.Component {
   componentWillMount() {
@@ -11,12 +9,11 @@ export class UserPage extends React.Component {
   }
 
   render() {
-    const { userInfo, repos } = this.props;
+    const { userInfo } = this.props;
 
     return (
-      <div className={styles.container}>
+      <div className="container">
         <UserProfile user={userInfo} />
-        <RepoList repos={repos} />
       </div>
     );
   }
@@ -28,7 +25,7 @@ function mapStateToProps(state) {
 
   return {
     userInfo: userState.info.toJS(),
-    userName: location.get('pathname').substring(1),
+    userName: location.get('pathname').split('/').pop(),
     repos: userState.repos.toJS()
   };
 }

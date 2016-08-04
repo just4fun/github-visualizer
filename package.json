@@ -87,7 +87,8 @@
       "prefer-const": 0,
       "no-param-reassign": 0,
       "no-use-before-define": 0,
-      "react/prefer-stateless-function": 0
+      "react/prefer-stateless-function": 0,
+      "react/prop-types": 0
     },
     "settings": {
       "import/resolver": {
@@ -138,6 +139,7 @@
     "classnames": "^2.2.5",
     "compression": "1.6.2",
     "express": "4.14.0",
+    "font-awesome": "^4.6.3",
     "fontfaceobserver": "2.0.1",
     "history": "3.0.0",
     "immutable": "3.8.1",

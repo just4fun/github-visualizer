@@ -22,6 +22,7 @@ import configureStore from './store';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
+import 'font-awesome/css/font-awesome.css';
 
 import './app.css';
 

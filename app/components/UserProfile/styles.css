@@ -1,3 +1,70 @@
 .user-profile {
-  flex: 1;
+  height: 570px;
+  width: 250px;
+  margin: 0 auto;
+  text-align: left;
+
+  img {
+    width: 230px;
+    height: 230px;
+    border-radius: 6px;
+  }
+
+  a {
+    color: #4078c0;
+  }
+}
+
+.name-card {
+  margin: 12px 0;
+}
+
+.full-name {
+  font-size: 26px;
+  line-height: 30px;
+}
+
+.login-name {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  color: #666;
+}
+
+.bio {
+  margin-bottom: 12px;
+}
+
+.info {
+  list-style: none;
+  border-top: 1px #e5e5e5 solid;
+  margin: 0;
+  padding: 12px 0;
+}
+
+.location {
+  margin: 0 7px 0 4px;
+}
+
+.stat {
+  display: flex;
+  border-top: 1px #e5e5e5 solid;
+  border-bottom: 1px #e5e5e5 solid;
+  padding: 12px 0;
+
+  div {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  strong {
+    font-size: 28px;
+  }
+
+  span {
+    text-transform: capitalize;
+    color: #767676;
+  }
 }
