@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadUserPage } from './actions';
 import UserProfile from 'components/UserProfile';
+import RepoList from 'components/RepoList';
 
 export class UserPage extends React.Component {
   componentWillMount() {
@@ -9,11 +10,12 @@ export class UserPage extends React.Component {
   }
 
   render() {
-    const { userInfo } = this.props;
+    const { userInfo, repos } = this.props;
 
     return (
       <div className="container">
         <UserProfile user={userInfo} />
+        <RepoList repos={repos} />
       </div>
     );
   }

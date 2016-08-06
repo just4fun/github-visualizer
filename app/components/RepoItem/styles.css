@@ -1,0 +1,41 @@
+.repo-item {
+  padding: 10px;
+  border-top: 1px solid #e5e5e5;
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  a {
+    display: flex;
+    color: #767676;
+  }
+}
+
+.repo-desc {
+  flex: 1;
+  flex-direction: column;
+
+  h4 {
+    color: #4078c0;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 11px;
+    margin: 0;
+  }
+}
+
+.repo-stat {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80px;
+  font-size: 12px;
+
+  i {
+    margin-left: 3px;
+  }
+}
