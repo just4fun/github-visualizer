@@ -57,6 +57,28 @@ export default function createRoutes(store) {
       }
     },
     {
+      path: '/users/:user/:repo',
+      name: 'repo',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/RepoPage/reducer'),
+          System.import('containers/RepoPage/sagas'),
+          System.import('containers/RepoPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('repo', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      }
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

@@ -12,3 +12,11 @@ export function createRequestTypes(base) {
 export function actionCreator(type, payload = {}) {
   return { type, ...payload };
 }
+
+export function getActions(actionTypes) {
+  return {
+    request: () => actionCreator(actionTypes.REQUEST),
+    success: data => actionCreator(actionTypes.SUCCESS, { response: data }),
+    failure: error => actionCreator(actionTypes.FAILURE, { error })
+  };
+}

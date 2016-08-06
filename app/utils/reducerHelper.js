@@ -1,4 +1,18 @@
-export default function reducerHandler(types, initialState) {
+import { fromJS } from 'immutable';
+
+const getInitialState = () => fromJS({
+  isFetching: false,
+  data: null,
+  error: null
+});
+
+function convertObjectToArray(actionTypeObject) {
+  return Object.keys(actionTypeObject).map(key => actionTypeObject[key]);
+}
+
+export default function reducerHandler(types, initialState = getInitialState()) {
+  types = convertObjectToArray(types);
+
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('Expected `types` to be an array of three elements.');
   }
