@@ -26,7 +26,8 @@ export default function reducerHandler(types, initialState = getInitialState()) 
   return (state = initialState, action) => {
     switch (action.type) {
       case requestType:
-        return state.set('isFetching', true);
+        return state.set('isFetching', true)
+                    .set('error', null);
       case successType:
         return state.set('isFetching', false)
                     .set('data', action.response);

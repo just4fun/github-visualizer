@@ -1,18 +1,19 @@
 import React from 'react';
 import classnames from 'classnames';
 import Loading from 'components/Loading';
+import ErrorMessage from 'components/ErrorMessage';
 import styles from './styles.css';
 
 export default class UserProfile extends React.Component {
   render() {
-    let { isFetching, data } = this.props.user;
+    let { isFetching, data, error } = this.props.user;
     let user = data || {};
 
     return (
       <div className={styles['user-profile']}>
-        {isFetching &&
-          <Loading />
-          ||
+        {isFetching && <Loading />}
+        {error && <ErrorMessage error={error} />}
+        {!isFetching && !error &&
           <div>
             <img src={user.avatar_url} alt={user.name} />
             <div className={styles['name-card']}>

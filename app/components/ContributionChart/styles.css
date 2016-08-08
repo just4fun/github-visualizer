@@ -1,0 +1,28 @@
+.contribution-chart {
+  width: 100%;
+
+  rect:hover {
+    stroke: #555;
+    stroke-width: 1px;
+  }
+}
+
+.commit-frequence-0 {
+  color: #eee;
+}
+
+.commit-frequence-1 {
+  color: #d6e685;
+}
+
+.commit-frequence-2 {
+  color: #8cc665;
+}
+
+.commit-frequence-3 {
+  color: #44a340;
+}
+
+.commit-frequence-4 {
+  color: #1e6823;
+}
