@@ -12,6 +12,8 @@ const loadModule = (cb) => (componentModule) => {
   cb(null, componentModule.default);
 };
 
+let previousPath = null;
+
 export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store);
@@ -29,6 +31,8 @@ export default function createRoutes(store) {
 
         importModules.then(([component]) => {
           renderRoute(component);
+
+          previousPath = nextState.location.pathname;
         });
 
         importModules.catch(errorLoading);
@@ -51,6 +55,8 @@ export default function createRoutes(store) {
           injectSagas(sagas.default);
 
           renderRoute(component);
+
+          previousPath = nextState.location.pathname;
         });
 
         importModules.catch(errorLoading);
@@ -73,6 +79,35 @@ export default function createRoutes(store) {
           injectSagas(sagas.default);
 
           renderRoute(component);
+
+          previousPath = nextState.location.pathname;
+        });
+
+        importModules.catch(errorLoading);
+      }
+    },
+    {
+      path: '/search',
+      name: 'search',
+      getComponent(nextState, cb) {
+        if (previousPath === nextState.location.pathname) { return; }
+
+        const importModules = Promise.all([
+          System.import('containers/SearchPage/reducer'),
+          System.import('containers/SearchPage/sagas'),
+          System.import('containers/SearchPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('search', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+
+          previousPath = nextState.location.pathname;
+
         });
 
         importModules.catch(errorLoading);
@@ -83,7 +118,10 @@ export default function createRoutes(store) {
       name: 'notfound',
       getComponent(nextState, cb) {
         System.import('containers/NotFoundPage')
-          .then(loadModule(cb))
+          .then(() => {
+            loadModule(cb);
+            previousPath = nextState.location.pathname;
+          })
           .catch(errorLoading);
       }
     },

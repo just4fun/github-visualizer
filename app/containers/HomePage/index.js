@@ -11,9 +11,10 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import styles from './styles.css';
 import { findDOMNode } from 'react-dom';
 import { push } from 'react-router-redux';
+import classnames from 'classnames';
+import styles from './styles.css';
 
 export class HomePage extends React.Component {
   static propTypes = {
@@ -33,8 +34,8 @@ export class HomePage extends React.Component {
           <h1>GitHub Visualizer</h1>
           <p>Yet another GitHub visualizer written in latest frontend stuff with D3.</p>
         </div>
-        <input placeholder="Type account name here" className={styles.account} onKeyUp={this.handleKeyUp} ref="input" />
-        <button className={styles.button} onClick={this.handleSearch}>Let's go</button>
+        <input type='text' placeholder="Type account name here" className={styles.account} onKeyUp={this.handleKeyUp} ref="input" />
+        <button className={classnames(styles.button, 'btn-submit')} onClick={this.handleSearch}>Let's go</button>
       </div>
     );
   }

@@ -9,7 +9,13 @@ export default class Header extends React.Component {
           <h2>
             <Link to="/">visualizer</Link>
           </h2>
-          <nav></nav>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </header>
     );
