@@ -34,7 +34,7 @@ export class HomePage extends React.Component {
           <h1>GitHub Visualizer</h1>
           <p>Yet another GitHub visualizer written in latest frontend stuff with D3.</p>
         </div>
-        <input type='text' placeholder="Type account name here" className={styles.account} onKeyUp={this.handleKeyUp} ref="input" />
+        <input type="text" placeholder="Type account name here" className={styles.account} onKeyUp={this.handleKeyUp} ref="input" />
         <button className={classnames(styles.button, 'btn-submit')} onClick={this.handleSearch}>Let's go</button>
       </div>
     );

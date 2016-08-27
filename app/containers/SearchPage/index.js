@@ -68,11 +68,11 @@ export class SearchPage extends React.Component {
       <div className="container">
         <div className={styles['form-item']}>
           <span className={styles['form-label']}>language</span>
-          <input type='text' className={styles['form-input']} ref='language' defaultValue={language} />
+          <input type="text" className={styles['form-input']} ref="language" defaultValue={language} />
         </div>
         <div className={styles['form-item']}>
           <span className={styles['form-label']}>location</span>
-          <input type='text' className={styles['form-input']} ref='location' defaultValue={location} />
+          <input type="text" className={styles['form-input']} ref="location" defaultValue={location} />
         </div>
         <div className={styles['form-item']}>
           <button className={classnames(styles['form-submit'], 'btn-submit')} onClick={this.handleSearch}>Search</button>

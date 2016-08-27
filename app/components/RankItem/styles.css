@@ -1,0 +1,17 @@
+.item {
+  text-align: center;
+  margin-top: 30px;
+
+  a {
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 15px;
+  }
+}
+
+.avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}

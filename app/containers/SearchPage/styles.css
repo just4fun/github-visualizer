@@ -18,7 +18,7 @@ $form_label_width: 150px;
   height: 40px;
   font-size: 15px;
   padding: .7em;
-  border: 1px solid rgba(0,0,0,.15);
+  border: 1px solid rgba(0, 0, 0, .15);
 }
 
 .form-submit {

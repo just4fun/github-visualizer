@@ -107,7 +107,6 @@ export default function createRoutes(store) {
           renderRoute(component);
 
           previousPath = nextState.location.pathname;
-
         });
 
         importModules.catch(errorLoading);

@@ -29,7 +29,7 @@ export function* searchPageData() {
     const { location, language } = action.payload.query;
 
     return !location && !language;
-  }
+  };
 
   yield take(locationChangeFilter);
   yield cancel(watcher);

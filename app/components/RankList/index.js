@@ -1,8 +1,7 @@
 import React from 'react';
-import classnames from 'classnames';
 import Loading from 'components/Loading';
 import ErrorMessage from 'components/ErrorMessage';
-import styles from './styles.css';
+import RankItem from 'components/RankItem';
 
 export default class RankList extends React.Component {
   render() {
@@ -16,9 +15,7 @@ export default class RankList extends React.Component {
         {isFetching && <Loading />}
         {error && <ErrorMessage error={error} />}
         {!isFetching && !error &&
-          <ul>
-            {data.items.map(user => <li key={user.id}>{user.login}</li>)}
-          </ul>
+          data.items.map(user => <RankItem key={user.id} user={user} />)
         }
       </div>
     );
